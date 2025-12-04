@@ -1,49 +1,61 @@
-import { Box, Flex, Button, useColorModeValue, useColorMode, Text, Container } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Button,
+  useColorModeValue,
+  useColorMode,
+  Text,
+  Container,
+} from "@chakra-ui/react";
 import { IoMoon } from "react-icons/io5";
 import { LuSun } from "react-icons/lu";
 
 export default function Navbar() {
-	const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode, toggleColorMode } = useColorMode();
 
-	return (
-		<Container maxW={"900px"}>
-			<Box bg={useColorModeValue("gray.400", "gray.700")} px={4} my={4} borderRadius={"5"}>
-				<Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-					{/* LEFT SIDE */}
-					<Flex
-						justifyContent={"center"}
-						alignItems={"center"}
-						gap={3}
-						display={{ base: "none", sm: "flex" }}
-					>
+  return (
+    <Container maxW={"900px"}>
+      <Box
+        bg={useColorModeValue("gray.400", "gray.700")}
+        px={4}
+        my={4}
+        borderRadius={"5"}
+      >
+        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+          {/* LEFT SIDE */}
+          <Flex
+            justifyContent={"center"}
+            alignItems={"center"}
+            gap={3}
+            display={{ base: "none", sm: "flex" }}
+          >
+            <Text
+              fontSize={"xl"}
+              fontWeight={"bold"}
+              color={useColorModeValue("teal.700", "teal.300")}
+              textShadow={"1px 1px 2px rgba(0, 0, 0, 0.3)"}
+              _hover={{
+                color: useColorModeValue("teal.500", "teal.100"),
+                transform: "scale(1.05)",
+                transition: "all 0.2s ease-in-out",
+              }}
+            >
+              Add A Task
+            </Text>
+          </Flex>
 
-						<Text
-							fontSize={"xl"}
-							fontWeight={"bold"}
-							color={useColorModeValue("teal.700", "teal.300")}
-							textShadow={"1px 1px 2px rgba(0, 0, 0, 0.3)"}
-							_hover={{
-								color: useColorModeValue("teal.500", "teal.100"),
-								transform: "scale(1.05)",
-								transition: "all 0.2s ease-in-out",
-							}}
-						>
-							Add A Task
-						</Text>
-					</Flex>
-
-					{/* RIGHT SIDE */}
-					<Flex alignItems={"center"} gap={3}>
-						<Text fontSize={"lg"} fontWeight={500}>
-							Daily Tasks
-						</Text>
-						{/* Toggle Color Mode */}
-						<Button onClick={toggleColorMode}>
-							{colorMode === "light" ? <IoMoon /> : <LuSun size={20} />}
-						</Button>
-					</Flex>
-				</Flex>
-			</Box>
-		</Container>
-	);
+          {/* RIGHT SIDE */}
+          <Flex alignItems={"center"} gap={3}>
+            <Text fontSize={"lg"} fontWeight={500}>
+              Daily Tasks
+            </Text>
+            {/* Toggle Color Mode */}
+            <Button onClick={toggleColorMode}>
+              {colorMode === "light" ? <IoMoon /> : <LuSun size={20} />}
+            </Button>
+          </Flex>
+        </Flex>
+      </Box>
+    </Container>
+  );
 }
