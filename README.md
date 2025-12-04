@@ -1,29 +1,17 @@
-# Let's Go! React with Go Complete Fullstack App - TypeScript, React Query, MongoDB, ChakraUI
+# Let's Go! React with Go Complete Fullstack App - TypeScript, React Query
 
-![image](https://github.com/user-attachments/assets/ca18a6c5-b454-4b99-b483-afca1f6fa5a1)
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/e228e933-733e-47bf-b550-c0e732209fcb" />
 
-
-
-DEMO APP
-[golang2-production.up.railway.app](https://golang2-production.up.railway.app/)
-
-
-Some Features:
-
--   ⚙️ Tech Stack: Go, React, TypeScript, MongoDB, TanStack Query, ChakraUI
--   ✅ Create, Read, Update, and Delete (CRUD) functionality for todos
--   🌓 Light and Dark mode for user interface
--   📱 Responsive design for various screen sizes
--   🌐 Deployment
--   🔄 Real-time data fetching, caching, and updates with TanStack Query
--   🎨 Stylish UI components with ChakraUI
--   ⏳ And much more!
 
 ### .env file
 
 ```shell
 PORT=5000
-MONGODB_URI=<LINK DATABASE MONGO_DB>
+DB_USER=root
+DB_PASSWORD=
+DB_HOST=localhost
+DB_PORT=3306
+DB_NAME=<NAME_DB>
 ENV=development
 ```
 
