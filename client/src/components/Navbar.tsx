@@ -48,7 +48,7 @@ export default function Navbar() {
         <div className="h-16 flex items-center justify-between ">
           {/* LEFT SIDE */}
           <div className="hidden sm:flex justify-center items-center gap-3">
-            <p className="text-xl font-bold text-teal-700 dark:text-teal-300 drop-shadow-md hover:text-teal-500 dark:hover:text-teal-100 hover:scale-105 transition-all duration-200">
+            <p className="text-xl font-bold text-teal-700 dark:text-teal-300 drop-shadow-md hover:text-teal-900 dark:hover:text-teal-100 hover:scale-105 transition-all duration-200">
               Add A Task
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function Navbar() {
             {/* Toggle Color Mode */}
             <button
               onClick={toggleColorMode}
-              className="p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+              className="p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-800 transition-colors"
             >
               {isDark ? <LuSun size={20} /> : <IoMoon />}
             </button>
