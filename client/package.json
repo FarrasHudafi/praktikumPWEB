@@ -13,11 +13,13 @@
     "@chakra-ui/react": "^2.10.4",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@tailwindcss/vite": "^4.1.17",
     "@tanstack/react-query": "^5.63.0",
     "framer-motion": "^11.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^5.2.0"
+    "react-icons": "^5.2.0",
+    "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

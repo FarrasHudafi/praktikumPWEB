@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Button, Flex, Input, Spinner } from "@chakra-ui/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { IoMdAdd } from "react-icons/io";
@@ -44,42 +43,27 @@ const TodoForm = () => {
 
   return (
     <form onSubmit={createTodo}>
-      <Flex gap={3} mb={6}>
-        <Input
+      <div className="flex gap-3 mb-6">
+        <input
           type="text"
           value={newTodo}
           onChange={(e) => setNewTodo(e.target.value)}
-          ref={(input) => input && input.focus()}
-          bg={"gray.700"}
-          border={"none"}
-          borderRadius={"2xl"}
-          p={4}
-          color={"gray.100"}
-          placeholder={"add a new task..."}
-          _placeholder={{ color: "gray.400" }}
-          _focus={{
-            bg: "gray.650",
-            boxShadow: "sm",
-          }}
+          autoFocus
+          className="flex-1 bg-gray-700 border-none rounded-2xl px-4 py-4 text-gray-100 placeholder-gray-400 focus:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:shadow-sm transition-all"
+          placeholder="add a new task..."
         />
-        <Button
+        <button
           type="submit"
-          bg={"blue.400"}
-          color={"gray.900"}
-          borderRadius={"2xl"}
-          px={6}
-          _hover={{
-            bg: "blue.300",
-            transform: "scale(1.02)",
-          }}
-          _active={{
-            transform: "scale(.98)",
-          }}
-          transition={"all 0.2s"}
+          className="bg-blue-400 text-gray-900 rounded-2xl px-6 hover:bg-blue-300 active:scale-95 transition-all duration-200 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={isCreating}
         >
-          {isCreating ? <Spinner size={"xs"} /> : <IoMdAdd size={24} />}
-        </Button>
-      </Flex>
+          {isCreating ? (
+            <div className="w-4 h-4 border-2 border-gray-900 border-t-transparent rounded-full animate-spin"></div>
+          ) : (
+            <IoMdAdd size={24} />
+          )}
+        </button>
+      </div>
     </form>
   );
 };

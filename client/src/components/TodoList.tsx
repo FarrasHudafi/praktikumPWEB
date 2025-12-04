@@ -1,5 +1,3 @@
-import { Flex, Spinner, Stack, Text } from "@chakra-ui/react";
-
 import TodoItem from "./TodoItem";
 import { useQuery } from "@tanstack/react-query";
 import { BASE_URL } from "../App";
@@ -14,55 +12,49 @@ const TodoList = () => {
   const { data: todos, isLoading } = useQuery<Todo[]>({
     queryKey: ["todos"],
     queryFn: async () => {
-      try {
-        const res = await fetch(BASE_URL + "/todos");
-        const data = await res.json();
+      const res = await fetch(BASE_URL + "/todos");
+      const data = await res.json();
 
-        if (!res.ok) {
-          throw new Error(data.error || "Something went wrong");
-        }
-        return data || [];
-      } catch (error) {
-        console.log(error);
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong");
       }
+      return data || [];
     },
   });
 
   return (
     <>
-      <Text
-        fontSize={"3xl"}
-        fontWeight={"300"}
-        textAlign={"center"}
-        my={6}
-        color={"gray.300"}
-        letterSpacing={"wide"}
-      >
-        today's tasks
-      </Text>
+      {/* Title */}
+      <div className="flex justify-center">
+        <p className="text-3xl font-bold text-center my-6 text-gray-300 tracking-wide pb-6">
+          today's tasks
+        </p>
+      </div>
+
+      {/* Loading Spinner */}
       {isLoading && (
-        <Flex justifyContent={"center"} my={8}>
-          <Spinner size={"xl"} color={"gray.400"} thickness={"2px"} />
-        </Flex>
+        <div className="flex justify-center my-8">
+          <div className="w-10 h-10 border-4 border-gray-800 border-t-white rounded-full animate-spin"></div>
+        </div>
       )}
+
+      {/* Empty State */}
       {!isLoading && todos?.length === 0 && (
-        <Stack alignItems={"center"} gap="3" py={8}>
-          <Text
-            fontSize={"lg"}
-            textAlign={"center"}
-            color={"gray.400"}
-            fontWeight={"300"}
-          >
+        <div className="flex flex-col items-center gap-3 py-8">
+          <p className="text-lg text-center text-gray-400 font-light">
             all tasks completed ✨
-          </Text>
-        </Stack>
+          </p>
+        </div>
       )}
-      <Stack gap={3}>
+
+      {/* Todo List */}
+      <div className="flex flex-col gap-3">
         {todos?.map((todo) => (
           <TodoItem key={todo.id} todo={todo} />
         ))}
-      </Stack>
+      </div>
     </>
   );
 };
+
 export default TodoList;
